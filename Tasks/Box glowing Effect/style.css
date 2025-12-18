@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  height: 350px;
+  width: 270px;
+  background-color: whitesmoke;
+
+  box-shadow: 1px 1px 50px 1px red;
+}

@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+  color: white;
+  background-color: black;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* Color Theory */
+/* We learned about the colors (rgb) part of this value including a that is alpha */
+
+/* #box {
+  height: 300px;
+  width: 300px;
+  background-color: green;
+  border-radius: 15px;
+  border: 6px solid white;
+} */
+
+h1 {
+  font-size: 70px;
+  padding: 20px 50px;
+  background-color: lightcoral;
+  border-radius: 10px;
+}
+p {
+  font-size: 50px;
+  padding: 20px 50px;
+  background-color: lightseagreen;
+  border: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+button {
+  height: 10%;
+  width: 20%;
+  background-color: red;
+  border-radius: 10px;
+  margin: 2%;
+  font-size: 20px;
+  border: none;
+}
+button:hover {
+  background-color: rgba(255, 0, 0, 0.7);
+  cursor: pointer;
+}
+button:active {
+  scale: 0.95;
+}

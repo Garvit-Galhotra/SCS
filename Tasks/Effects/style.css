@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  /* sizes */
+  --h1-size: 2rem;
+  --effect-2-h2: 4rem;
+  --p-size: 1.5rem;
+
+  /* padding */
+  --p-padding: 0.5rem;
+  --padding: 1rem;
+
+  /* Margin */
+  --margin: 5rem;
+
+  /* Position */
+  --x: 50%; /* Can't use anywhere else now*/
+  --y: 50%; /* Can't use anywhere else now*/
+
+  /* Card Sizes */
+  --height: 60vh;
+  --width: 20vw;
+}
+
+#effect-1 {
+  height: 100%;
+  width: 100%;
+  background-color: #121212;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+main h2 {
+  padding-top: var(--padding);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: var(--h1-size);
+}
+
+main p {
+  padding-top: var(--p-padding);
+  font-size: var(--p-size);
+}
+
+#effect-1 section {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#effect-1 section .card {
+  height: 30%;
+  width: 25%;
+  background-color: #33333394;
+  border: 1px solid white;
+  border-radius: 20px;
+  margin-top: var(--margin);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+#effect-1 section .card h2 {
+  font-size: var(--h1-size);
+  padding: var(--padding);
+}
+
+#effect-1 section .card p {
+  font-size: var(--p-size);
+  padding: var(--p-padding);
+}
+
+.cursor {
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(
+    150px at var(--x) var(--y),
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 0.933)
+  );
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#effect-2 {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#effect-2 section {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#effect-2 section h2 {
+  padding-top: var(--padding);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: var(--effect-2-h2);
+  background: linear-gradient(to right, purple, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+#effect-2 section h3 {
+  padding-top: var(--p-padding);
+  font-size: var(--h1-size);
+  color: rgb(3, 255, 3);
+  cursor: pointer;
+}
+
+#effect-2 section p {
+  padding-top: var(--p-padding);
+  font-size: var(--p-size);
+  color: rgb(3, 255, 3);
+  cursor: pointer;
+}
+
+#effect-3 {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+#effect-3 section {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes borderAnimation {
+  from {
+    --rotate: 0deg;
+  }
+  to {
+    --rotate: 360deg;
+  }
+}
+
+#effect-3 section .box {
+  height: var(--height);
+  width: var(--width);
+  background-color: var(--bgcolor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  box-shadow: 0 0 60px #90366800;
+  border-radius: 20px;
+  background: linear-gradient(black) content-box,
+    conic-gradient(from var(--rotate), #903667, rgba(0, 0, 0, 0.838), #903667)
+      border-box;
+  border: 0px solid rgba(0, 0, 0, 0);
+  animation: borderAnimation 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+  transition: all 0.3s linear;
+  text-shadow: 0 0 0px #721777;
+}
+
+#effect-3 section .box:hover {
+  cursor: pointer;
+  animation-play-state: running;
+  border-width: 7px;
+  box-shadow: 0 0 60px #903667;
+  color: #721777;
+  text-shadow: 0 0 50px #721777;
+}
+
+#effect-3 section .box img {
+  width: 70%;
+}
+
+#effect-4 {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+#effect-4 section {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  anchor-name: --some-anchor;
+}
+
+#effect-4 section .box {
+  height: 200px;
+  width: 200px;
+  background-color: red;
+  border: 1px solid white;
+}
+
+#effect-4 section .box:hover {
+  anchor-name: --some-anchor;
+}
+
+#effect-4 section .anchor {
+  border-radius: 10px;
+  background-color: grey;
+  top: anchor(top);
+  bottom: anchor(bottom);
+  left: anchor(left);
+  right: anchor(right);
+  position-anchor: --some-anchor;
+  position: absolute;
+  transition: all 0.3s linear;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
