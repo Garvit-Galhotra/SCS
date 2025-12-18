@@ -1,0 +1,143 @@
+:root {
+  --bg-main: #ffffff;
+  --text-primary: #111;
+  --text-muted: #777;
+
+  --gap-xs: 10px;
+  --gap-sm: 20px;
+  --gap-md: 40px;
+  --gap-lg: 60px;
+
+  --nav-height: 72px;
+
+  --font-xs: 0.875rem;
+  --font-sm: 1rem;
+  --font-md: 1.25rem;
+  --font-lg: 2.5rem;
+  --font-xl: clamp(6rem, 15vw, 15rem);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-main);
+  color: var(--text-primary);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  width: 100%;
+  min-height: calc(100vh - var(--nav-height));
+}
+
+#nav {
+  height: var(--nav-height);
+  width: 100%;
+  padding: 0 var(--gap-sm);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#detail {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
+
+#logo {
+  width: 48px;
+  height: 48px;
+
+  background-image: url(assets/LogoImage.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#button {
+  background: transparent;
+  border: none;
+
+  font-size: var(--font-md);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+#button:hover {
+  opacity: 0.7;
+}
+
+#hero {
+  width: 100%;
+  min-height: calc(100vh - var(--nav-height));
+
+  display: flex;
+}
+
+#left,
+#right {
+  width: 50%;
+}
+
+#left {
+  padding: var(--gap-md);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--gap-lg);
+}
+
+#topest {
+  display: flex;
+  gap: var(--gap-md);
+}
+
+.stat h2 {
+  font-size: var(--font-lg);
+  font-weight: 300;
+}
+
+.stat p {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+#middle h1 {
+  font-size: var(--font-xl);
+  font-weight: 200;
+  line-height: 1;
+}
+
+#middle p {
+  font-size: var(--font-md);
+  color: var(--text-muted);
+}
+
+#p1 {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+#right {
+  background-image: url(assets/ManImage.png);
+  background-size: cover;
+  background-position: center;
+}
