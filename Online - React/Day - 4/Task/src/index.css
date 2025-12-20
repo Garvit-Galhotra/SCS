@@ -203,28 +203,26 @@ body {
 
 #page2 section {
   grid-area: section;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas:
-    "card1 card1 card1"
-    "card2 card2 card2"
-    "card3 card3 card3";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
 }
 
 #page2 section #Card1 {
-  grid-area: card1;
-  background-color: red;
+  background-color: #0d1a2d;
+  color: white;
+  padding: 20px;
 }
 
-#page2 section #Card2 {
-  grid-area: card2;
-  background-color: lightblue;
+page2 section #Card1 .img {
+  background-image: url(assets/cardImage.png);
+  background-size: cover;
+  background-position: center;
 }
 
-#page2 section #Card3 {
-  grid-area: card3;
-  background-color: orange;
+#page2 section #Card1 span {
+  color: rgba(255, 255, 255, 0.376);
 }
 
 #page2 footer {

@@ -1,7 +1,4 @@
 import React from "react";
-import Card from "./Card";
-import Card2 from "./Card2";
-import Card3 from "./Card3";
 
 const Section = () => {
   return (
@@ -16,9 +13,80 @@ const Section = () => {
         </p>
       </header>
       <section>
-        <Card />
-        <Card2 />
-        <Card3 />
+        <div id="Card1" className="Card">
+          <div className="img"></div>
+          <p>
+            Professional hard courts
+            <br />
+            <span>
+              with tournament-grade <br />
+              lighting & climate control - <br />
+              play in
+            </span>
+            perfect conditions, <br />
+            in any season.
+          </p>
+          <div className="low">
+            <div className="bar"></div>
+            <p>Game Mode</p>
+          </div>
+        </div>
+        <div id="Card2" className="Card">
+          <h2>Private & Group Lessons</h2>
+        </div>
+        <div id="Card3" className="Card">
+          <h2>100+</h2>
+          <h3>Pro Coaches</h3>
+          <p>
+            Certified professionals ready to boost your game from first serve to
+            tournament level.
+          </p>
+          <div className="levels">
+            <div className="beginner">
+              <p>Beginner</p>
+              <div className="drops">
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+              </div>
+              <p>55</p>
+            </div>
+            <div className="intermediate">
+              <p>Intermediate</p>
+              <div className="drops">
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+              </div>
+              <p>40</p>
+            </div>
+            <div className="Advance">
+              <p>Intermediate</p>
+              <div className="drops">
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+                <h4></h4>
+              </div>
+              <p>35</p>
+            </div>
+          </div>
+        </div>
       </section>
       <footer>
         <h3>A few more facts about us in numbers</h3>
