@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(27, 27, 27);
+  color: Black;
+}
+
+.nav {
+  width: 100%;
+  background-color: lightblue;
+  font-size: 5rem;
+  padding: 20px;
+  text-align: center;
+}
+.footer {
+  width: 100%;
+  background-color: cyan;
+  font-size: 5rem;
+  padding: 20px;
+  text-align: center;
+}

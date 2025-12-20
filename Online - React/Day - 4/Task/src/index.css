@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(239, 239, 239);
+}
+
+:root {
+  /* Padding */
+  --Gen-Padding: 3.5rem;
+  --Gap: 4.5rem;
+  --bubble-padding: 0.25rem 0.75rem;
+  --button-padding: 0.75rem 1.5rem;
+
+  /* Border Radius */
+  --border-radius: 1.75rem;
+
+  /* Font Size */
+  --Gen-font-size: 1.25rem;
+}
+
+#main {
+  width: 100%;
+  height: 100%;
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--Gen-Padding);
+}
+
+#nav .logo h1 {
+  font-weight: 500;
+}
+
+#nav .details {
+  display: flex;
+  gap: var(--Gap);
+  font-size: var(--Gen-font-size);
+}
+
+#nav .details h4 {
+  font-weight: 450;
+}
+
+#nav .details #bubble {
+  border: 1px solid rgba(0, 0, 0, 0.156);
+  padding: var(--bubble-padding);
+  border-radius: var(--border-radius);
+}
+
+#nav .bookNow {
+  background-color: #0d1a2d;
+  color: white;
+  padding: var(--button-padding);
+  font-size: var(--Gen-font-size);
+  font-weight: 100;
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+#hero {
+  background-image: url(/src/assets/heroImage.png);
+  background-position: bottom;
+  background-size: cover;
+  margin: 0 10rem;
+  border-radius: 2rem;
+  display: grid;
+  color: black;
+  grid-template-columns: 2fr 2fr 12.5rem;
+  grid-template-rows: 2fr 12.5rem;
+  grid-template-areas:
+    "main main main"
+    "note . social";
+  color: white;
+}
+
+#hero .mainContent {
+  grid-area: main;
+  text-align: center;
+}
+
+#hero .mainContent h2 {
+  font-size: 3.5rem;
+  font-weight: 400;
+  padding-top: 10rem;
+}
+
+#hero .mainContent p {
+  font-size: 1.5rem;
+  padding-top: 2rem;
+  font-weight: 100;
+}
+
+#hero .mainContent button {
+  border: none;
+  background-color: #0d1a2d;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 100;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--border-radius);
+  margin-top: 2rem;
+}
+
+#hero .left {
+  grid-area: note;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+#hero .left .imageDiv {
+  height: 60px;
+  width: 150px;
+  background-color: rgba(255, 255, 255, 0.421);
+  border-radius: 2rem;
+  margin-left: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#hero .left img {
+  width: 3.25rem;
+  border-radius: 50%;
+  background-color: white;
+  margin: 0.25rem;
+  position: absolute;
+}
+
+#hero .left #img1 {
+  z-index: 0;
+  left: 0.5rem;
+}
+
+#hero .left #img2 {
+  left: 3rem;
+  z-index: 1;
+}
+
+#hero .left #img3 {
+  left: 5.5rem;
+  z-index: 0;
+}
+
+#hero .right {
+  grid-area: social;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 3.5rem;
+  gap: 2rem;
+  white-space: nowrap;
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.741);
+}
+
+#Main #page2 {
+  padding-top: 7rem;
+  height: 100%;
+  width: 100%;
+  /* background-color: red; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 13rem 1fr 13rem;
+  grid-template-areas:
+    "Header Header Header"
+    "section section section"
+    "footer footer footer";
+}
+
+#page2 header {
+  grid-area: Header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#page2 header h2 {
+  background-color: #ffffff5a;
+  margin-left: 6rem;
+  font-weight: 100;
+  border: 0.1rem solid rgba(0, 0, 0, 0.216);
+  padding: 0.25rem 1rem;
+  border-radius: 1.25rem;
+}
+
+#page2 header p {
+  font-size: 2rem;
+  line-height: 1.25;
+  margin-right: 6rem;
+}
+
+#page2 section {
+  grid-area: section;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "card1 card1 card1"
+    "card2 card2 card2"
+    "card3 card3 card3";
+}
+
+#page2 section #Card1 {
+  grid-area: card1;
+  background-color: red;
+}
+
+#page2 section #Card2 {
+  grid-area: card2;
+  background-color: lightblue;
+}
+
+#page2 section #Card3 {
+  grid-area: card3;
+  background-color: orange;
+}
+
+#page2 footer {
+  grid-area: footer;
+}
