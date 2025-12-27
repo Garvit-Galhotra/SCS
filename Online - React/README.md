@@ -7,9 +7,9 @@
 7. Props/Props Drilling ✔️
 8. Tailwind CSS ✔️
 9. Functions Calling in React ✔️
-10. useState hook
-11. Form Handling
-12. Two way Binding
+10. useState hook ✔️
+11. Form Handling ✔️
+12. Two way Binding ✔️
 13. Basic Todo
 14. Basic Todo through multiple components
 15. LocalStorage
