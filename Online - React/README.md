@@ -13,7 +13,7 @@
 13. Basic Todo
 14. Basic Todo through multiple components
 15. LocalStorage
-16. Basic Todo through multiple components
+16. Basic Todo through multiple components and local storage
 17. API handling (Axios)
 18. useEffect
 19. Gallery Project
