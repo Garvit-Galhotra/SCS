@@ -1,0 +1,17 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: system-ui;
+}
+html, body {
+   height: 100%;
+   width: 100%;
+   background-color: rgb(27,27,27);
+   color: white;
+}
+form{
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
