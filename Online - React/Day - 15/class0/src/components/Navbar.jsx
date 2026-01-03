@@ -1,14 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-30 bg-red-500 flex items-center justify-between px-8">
-      <h3 className="text-4xl">Navbar</h3>
-      <div className="Elements flex gap-8 text-3xl">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-      </div>
+    <div className="flex gap-2 px-2 py-2 text-2xl">
+      <NavLink
+        style={({ isActive }) => ({
+          color: isActive ? "red" : "White",
+        })}
+        to="/"
+      >
+        Home
+      </NavLink>
+      <NavLink
+        style={({ isActive }) => ({
+          color: isActive ? "red" : "White",
+        })}
+        to="/about"
+      >
+        About
+      </NavLink>
+      <NavLink
+        style={({ isActive }) => ({
+          color: isActive ? "red" : "White",
+        })}
+        to="/courses"
+      >
+        Courses
+      </NavLink>
     </div>
   );
 };

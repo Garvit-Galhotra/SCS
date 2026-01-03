@@ -1,43 +1,50 @@
 # React Router DOM
 
-# Browser Routing
+---
 
-1. Download is using` npm i react-router-dom`
-2. in main.jsx import {BrowserRouter} from 'react-router-dom'
-3. Wrap <App /> by BrowserRouter in main.jsx file
-4. make Routes `Collection of all routes` `<Routes></ Routes>`
-5. Inside of Routes make Route `<Route/>`
-6. in Route mention path `Where to go` and element `What to render`
+- React - Builds SPA `Single Page Application` (URL Change hone pe Kuch ni hota tha!!)
 
 ---
 
-- So it should look like this
-  <Routes>
-  <Route path="/home" element={<Home />}/>
-  </Routes>
+# React Router Contains 2 things :-
+
+1. React Router - Logic
+2. React Router DOM
+
+# Type of Router
+
+1. BrowserRouter (Important)
+   `Uses History API` `URL clean` `Mostly used in Modern Apps` `Good SEO`
+
+   `While we intergrate react with the backend if we use the BrowserRouter it will try to find the index.js file only and only this file will work`
+
+   `Needs Server Config` -> (index.js)
+
+2. HashRouter
+   `Contains #` -> /courses/#/about `Ugly URL`
+   `Older Browser`
+   `No SEO`
+
+3. MemoryRouter
+   `For React Native`
+
+4. Static Router
+   SSR `Server Side Rendering`
 
 ---
 
-# Some Features
-
-1. Nested routes - made by writing in this way
-
-path = "/product/men"
-
-2. Dynamic routes
-
-path = "/course/:id"
-
-3. Dynamic nested routes
-   you can access id by using use param hook
+Routes - Container
+Route - If URL(Path) is X Then Show Y
 
 ---
 
-# Random Feature (Imp)
+- Figure Out What this is...
 
-/:id
+"
+style={({ isActive }) => ({
+color: isActive ? "red" : "White",
+})}"
 
-to get that id we use
+---
 
-const params = useParams()
-console.log(params)
+# Nested Routes
