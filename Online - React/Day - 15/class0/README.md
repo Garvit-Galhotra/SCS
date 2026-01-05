@@ -48,3 +48,7 @@ color: isActive ? "red" : "White",
 ---
 
 # Nested Routes
+
+---
+
+Learn how to use the CreateBrowserRouter - will be disscussed in next class (Maybe) if not do it yourself
