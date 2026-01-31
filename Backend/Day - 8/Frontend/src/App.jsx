@@ -2,24 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const App = () => {
-  const [notes, setNotes] = useState([
-    {
-      title: "test Title1",
-      description: "test Description1",
-    },
-    {
-      title: "test Title2",
-      description: "test Description2",
-    },
-    {
-      title: "test Title3",
-      description: "test Description3",
-    },
-    {
-      title: "test Title4",
-      description: "test Description4",
-    },
-  ]);
+  const [notes, setNotes] = useState([]);
 
   axios.get("http://localhost:3000/notes").then((res) => {
     setNotes(res.data.notes);
