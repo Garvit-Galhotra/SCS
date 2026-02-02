@@ -27,3 +27,20 @@ body,
   max-width: 20rem;
   color: rgb(0, 0, 0);
 }
+
+.note-create-form {
+  display: flex;
+  gap: 1rem;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+}
+
+.note-create-form input {
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  border: none;
+}
+
+.note-create-form button{
+
+}
