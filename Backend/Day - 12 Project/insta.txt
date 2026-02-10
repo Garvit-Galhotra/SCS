@@ -1,0 +1,25 @@
+==> Authetication
+=> Register (1. user ka data save krna )
+=> login
+=> logout(token blacklisting)
+=> otp based registration
+
+==> POST
+=> create
+=> can see the feed
+=> can like the post (collection types)
+=> save the post
+
+==> user
+=> followers
+=> following
+
+
+user = {
+    username:String,
+    email:String,
+    password:String,
+    bio:String,
+    followers:Array,
+    profile_image:String
+}
