@@ -78,7 +78,7 @@ async function loginController(req, res) {
     { expiresIn: "1d" },
   );
 
-  res.cookie("jwt_token", token);
+  res.cookie("token", token);
 
   res.status(200).json({
     message: "user Logged in Successfully",
