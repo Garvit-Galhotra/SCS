@@ -31,4 +31,10 @@ postrouter.get(
   postController.getPostDetailController,
 );
 
+postrouter.post(
+  "/like/:postid",
+  identifyUser,
+  postController.likePostController,
+);
+
 module.exports = postrouter;
