@@ -1,18 +1,10 @@
 const followModel = require("../models/follow.model");
 
+const userModel = require("../models/user.model");
+
 async function followUserController(req, res) {
   const followerUsername = req.user.username;
   const followeeUsername = req.params.username;
-
-  const isFolloweeExists = await followModel.findOne({
-    username: followeeUsername,
-  });
-
-  if (isFolloweeExists) {
-    return res.status(404).json({
-      message: "User does not exists",
-    });
-  }
 
   if (followeeUsername == followerUsername) {
     return res.status(400).json({
@@ -20,9 +12,19 @@ async function followUserController(req, res) {
     });
   }
 
+  const isFolloweeExists = await userModel.findOne({
+    username: followeeUsername,
+  });
+
+  if (!isFolloweeExists) {
+    return res.status(404).json({
+      message: "User you are trying to follow does not exist",
+    });
+  }
+
   const isAlreadyFollowing = await followModel.findOne({
-    followee: followeeUsername,
     follower: followerUsername,
+    followee: followeeUsername,
   });
 
   if (isAlreadyFollowing) {
@@ -52,17 +54,20 @@ async function unfollowUserController(req, res) {
     followee: followeeUsername,
   });
 
-  if (!followerUsername) {
+  if (!isUserFollowing) {
     return res.status(200).json({
-      message: "User does not exists",
+      message: `You are not following ${followeeUsername}`,
     });
   }
 
   await followModel.findByIdAndDelete(isUserFollowing._id);
 
   res.status(200).json({
-    message: `You have unfollowed ${followerUsername}`,
+    message: `You have unfollowed ${followeeUsername}`,
   });
 }
 
-module.exports = { followUserController, unfollowUserController };
+module.exports = {
+  followUserController,
+  unfollowUserController,
+};

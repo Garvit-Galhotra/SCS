@@ -3,9 +3,11 @@ const mongoose = require("mongoose");
 const followSchema = new mongoose.Schema(
   {
     follower: {
+      // who is requesting follow
       type: String,
     },
     followee: {
+      // who is providing the follow
       type: String,
     },
     status: {
@@ -13,7 +15,7 @@ const followSchema = new mongoose.Schema(
       default: "pending",
       enum: {
         values: ["pending", "accepted", "rejected"],
-        message: "status can only be pending, accepted or rejected", 
+        message: "status can only be pending, accepted or rejected",
       },
     },
   },
