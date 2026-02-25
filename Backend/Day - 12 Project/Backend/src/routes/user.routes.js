@@ -10,6 +10,10 @@ userRouter.post(
   userController.followUserController,
 );
 
-userRouter.post("/unfollow/:username", identifyUser, userController.unfollowUserController);
+userRouter.post(
+  "/unfollow/:username",
+  identifyUser,
+  userController.unfollowUserController,
+);
 
 module.exports = userRouter;

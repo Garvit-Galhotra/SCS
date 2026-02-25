@@ -18,7 +18,7 @@ async function followUserController(req, res) {
 
   if (!isFolloweeExists) {
     return res.status(404).json({
-      message: "User you are trying to follow does not exist",
+      message: "User you are trying to follow someone that does not exist",
     });
   }
 

@@ -1,0 +1,14 @@
+.post-image-label{
+    background-color: #dedede;
+    color: rgb(20, 20, 20);
+    padding-inline: 1rem;
+    padding-block: 0.25rem;
+    border-radius: 1rem;    
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    &:active{
+        transform: scale(0.99);
+    }
+}

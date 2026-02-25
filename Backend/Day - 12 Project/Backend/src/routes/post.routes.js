@@ -38,7 +38,7 @@ postrouter.post(
 );
 
 postrouter.post(
-  "/unlike/postid",
+  "/unlike/:postid",
   identifyUser,
   postController.unLikePostController,
 );

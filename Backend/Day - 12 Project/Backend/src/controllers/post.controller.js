@@ -24,11 +24,7 @@ async function createPostController(req, res) {
 
   res.status(201).json({
     message: "Post created successfully",
-    post: {
-      caption: post.caption,
-      imgUrl: post.imgUrl,
-      user: post.user,
-    },
+    post,
   });
 }
 
@@ -91,24 +87,24 @@ async function likePostController(req, res) {
 }
 
 async function unLikePostController(req, res) {
-  const username = req.user.username;
   const postId = req.params.postid;
+  const username = req.user.username;
 
-  const isLiked = await postModel.find({
+  const isLiked = await likeModel.findOne({
     post: postId,
     user: username,
   });
 
   if (!isLiked) {
     return res.status(400).json({
-      message: "Like the post first",
+      message: "Post didn't like",
     });
   }
 
-  await likeModel.findOneAndDelete({ id: isLiked });
+  await likeModel.findOneAndDelete({ _id: isLiked._id });
 
-  res.status(200).json({
-    message: "Post disLiked successfully",
+  return res.status(200).json({
+    message: "post un liked successfully.",
   });
 }
 
@@ -116,16 +112,18 @@ async function getFeedController(req, res) {
   const user = req.user;
 
   const post = await Promise.all(
-    (await postModel.find().populate("user").lean()).map(async (post) => {
-      const isLiked = await likeModel.findOne({
-        user: user.username,
-        post: post._id,
-      });
+    (await postModel.find().populate("user").sort({ _id: -1 }).lean()).map(
+      async (post) => {
+        const isLiked = await likeModel.findOne({
+          user: user.username,
+          post: post._id,
+        });
 
-      post.isLiked = Boolean(isLiked);
+        post.isLiked = Boolean(isLiked);
 
-      return post;
-    }),
+        return post;
+      },
+    ),
   );
 
   res.status(200).json({
