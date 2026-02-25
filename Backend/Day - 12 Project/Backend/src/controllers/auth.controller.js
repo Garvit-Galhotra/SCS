@@ -46,16 +46,18 @@ async function registerController(req, res) {
       email: user.email,
       username: user.username,
       bio: user.bio,
-      profileImage: user.profile_image,
+      profileImage: user.profile_image, 
     },
   });
 }
 async function loginController(req, res) {
   const { username, email, password } = req.body;
 
-  const user = await userModel.findOne({
-    $or: [{ username: username }, { email: email }], // change something here (just personal review)
-  });
+  const user = await userModel
+    .findOne({
+      $or: [{ username: username }, { email: email }], // change something here (just personal review)
+    })
+    .select("+password");
 
   if (!user) {
     return res.status(404).json({

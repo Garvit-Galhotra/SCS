@@ -1,39 +1,67 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import "../style/form.scss";
+import { useAuth } from "../hook/useAuth";
+import { useNavigate } from "react-router";
+
 const Register = () => {
-  const handleSubmit = (e) => {
+  const { loading, handleRegister } = useAuth();
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("User in the register ");
+    await handleRegister(username, email, password);
+
+    navigate("/");
   };
+
+  if (loading) {
+    return (
+      <main>
+        <h1>Loading.....</h1>
+      </main>
+    );
+  }
 
   return (
     <main>
       <div className="form-container">
+        <h1>Register</h1>
         <form onSubmit={handleSubmit}>
           <input
+            onInput={(e) => {
+              setUsername(e.target.value);
+            }}
             type="text"
             name="username"
             id="username"
-            placeholder="Enter username"
-          />
-
-          <input
-            type="text"
-            name="password"
-            id="password"
-            placeholder="Enter Password"
+            placeholder="Enter Username"
           />
           <input
+            onInput={(e) => {
+              setEmail(e.target.value);
+            }}
             type="text"
             name="email"
             id="email"
-            placeholder="Enter email address"
+            placeholder="Enter email"
           />
-          <button className="button primary-button">Register</button>
+          <input
+            onInput={(e) => {
+              setPassword(e.target.value);
+            }}
+            type="text"
+            name="password"
+            id="password"
+            placeholder="Enter password"
+          />
+          <button>Register</button>
         </form>
-        <p>
-          Already have an account <Link to={"/login"}>Login to account</Link>.
-        </p>
       </div>
     </main>
   );

@@ -37,4 +37,12 @@ postrouter.post(
   postController.likePostController,
 );
 
+postrouter.post(
+  "/unlike/postid",
+  identifyUser,
+  postController.unLikePostController,
+);
+
+postrouter.get("/feed", identifyUser, postController.getFeedController);
+
 module.exports = postrouter;

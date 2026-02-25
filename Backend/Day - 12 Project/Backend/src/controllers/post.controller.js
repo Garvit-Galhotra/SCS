@@ -16,7 +16,7 @@ async function createPostController(req, res) {
     folder: "cohort-2-insta-clone-posts",
   });
 
-  const posts = postModel.create({
+  const post = postModel.create({
     caption: req.body.caption,
     imgUrl: file.url,
     user: req.user.id,
@@ -24,7 +24,11 @@ async function createPostController(req, res) {
 
   res.status(201).json({
     message: "Post created successfully",
-    posts,
+    post: {
+      caption: post.caption,
+      imgUrl: post.imgUrl,
+      user: post.user,
+    },
   });
 }
 
@@ -75,10 +79,58 @@ async function likePostController(req, res) {
     });
   }
 
-  const like = await likeModel.create({});
+  const like = await likeModel.create({
+    post: postId,
+    user: username,
+  });
 
   res.status(201).json({
     message: "Liked the post successfully",
+    like,
+  });
+}
+
+async function unLikePostController(req, res) {
+  const username = req.user.username;
+  const postId = req.params.postid;
+
+  const isLiked = await postModel.find({
+    post: postId,
+    user: username,
+  });
+
+  if (!isLiked) {
+    return res.status(400).json({
+      message: "Like the post first",
+    });
+  }
+
+  await likeModel.findOneAndDelete({ id: isLiked });
+
+  res.status(200).json({
+    message: "Post disLiked successfully",
+  });
+}
+
+async function getFeedController(req, res) {
+  const user = req.user;
+
+  const post = await Promise.all(
+    (await postModel.find().populate("user").lean()).map(async (post) => {
+      const isLiked = await likeModel.findOne({
+        user: user.username,
+        post: post._id,
+      });
+
+      post.isLiked = Boolean(isLiked);
+
+      return post;
+    }),
+  );
+
+  res.status(200).json({
+    message: "Post Fetched Successfully",
+    post,
   });
 }
 
@@ -87,4 +139,6 @@ module.exports = {
   getPostController,
   getPostDetailController,
   likePostController,
+  unLikePostController,
+  getFeedController,
 };
