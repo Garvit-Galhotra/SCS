@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 
 const likeModel = require("../models/likes.model");
 
+const bookMarkModel = require("../models/bookmark.model");
+
 const imagekit = new ImageKit({
   privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
 });
@@ -21,6 +23,7 @@ async function createPostController(req, res) {
     imgUrl: file.url,
     user: req.user.id,
   });
+  ``;
 
   res.status(201).json({
     message: "Post created successfully",
@@ -132,6 +135,67 @@ async function getFeedController(req, res) {
   });
 }
 
+async function createSavePostController(req, res) {
+  const username = req.user.username;
+  const postId = req.params.postid;
+
+  const isPost = await postModel.findOne({ _id: postId });
+
+  if (!isPost) {
+    return res.status(404).json({
+      message: "Post not Found",
+    });
+  }
+
+  console.log(isPost);
+
+  const isBookMarkAlreadyExists = await bookMarkModel.findOne({
+    user: username,
+    postid: postId,
+  });
+
+  if (isBookMarkAlreadyExists) {
+    return res.status().json({
+      message: "Post is Already Saved",
+    });
+  }
+
+  const savedPost = await bookMarkModel.create({
+    user: username,
+    post: postId,
+  });
+
+  console.log(savedPost);
+
+  return res.status(201).json({
+    message: "Post is saved",
+    savedPost: {
+      user: savedPost.user,
+      postId: savedPost.post,
+    },
+  });
+}
+
+async function deleteSavedPostController(req, res) {
+  const bookMarkId = req.params.bookmarkid;
+
+  const isBookMark = await bookMarkModel.findOne({
+    _id: bookMarkId,
+  });
+
+  if (!isBookMark) {
+    return res.status(404).json({
+      message: "Book mark not found",
+    });
+  }
+
+  await bookMarkModel.findOneAndDelete({ _id: bookMarkId });
+
+  res.status(200).json({
+    message: "Book mark deleted successfully",
+  });
+}
+
 module.exports = {
   createPostController,
   getPostController,
@@ -139,4 +203,6 @@ module.exports = {
   likePostController,
   unLikePostController,
   getFeedController,
+  createSavePostController,
+  deleteSavedPostController,
 };

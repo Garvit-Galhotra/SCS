@@ -45,4 +45,16 @@ postrouter.post(
 
 postrouter.get("/feed", identifyUser, postController.getFeedController);
 
+postrouter.post(
+  "/save/:postid",
+  identifyUser,
+  postController.createSavePostController,
+);
+
+postrouter.post(
+  "/unsave/:bookmarkid",
+  identifyUser,
+  postController.deleteSavedPostController,
+);
+
 module.exports = postrouter;
