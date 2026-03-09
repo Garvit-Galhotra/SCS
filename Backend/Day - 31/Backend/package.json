@@ -1,5 +1,5 @@
 {
-  "name": "day-30",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,6 +13,7 @@
   "type": "module",
   "dependencies": {
     "express": "^5.2.1",
-    "express-validator": "^7.3.1"
+    "socket.io": "^4.8.3",
+    "socketio": "^1.0.0"
   }
 }
