@@ -1,27 +1,26 @@
-import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "./redux/slices/counterSlice";
+import { fetchPhotos, fetchVideos } from "./api/MediaApi";
 
 const App = () => {
-  const num = useSelector((state) => state.counter.value);
-
-  const dispatch = useDispatch();
-
   return (
-    <div>
-      <h1>{num}</h1>
+    <div className="h-screen w-full bg-gray-950 text-white">
       <button
-        onClick={() => {
-          dispatch(increment());
+        onClick={async () => {
+          const data = await fetchPhotos("cats");
+
+          console.log(data.results);
         }}
       >
-        increment
+        Get Photos
       </button>
+
       <button
-        onClick={() => {
-          dispatch(decrement());
+        onClick={async () => {
+          const data = await fetchVideos("cats");
+
+          console.log(data.videos);
         }}
       >
-        decrement
+        Get Videos
       </button>
     </div>
   );
